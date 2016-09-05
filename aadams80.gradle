@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+dependencies {
+    compile files('lib/resources.jar')
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain',
+                   // Inspired heavily by http://stackoverflow.com/a/22759572/321301
+                   'Class-Path': configurations.compile.collect{it.getPath()}.join(' ')
+    }
+}
