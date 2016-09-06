@@ -30,8 +30,22 @@ public class Person2 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 2 put your implementation here
-	  return null;
+	  // If there's nothing to rearrange, avoid unnecessary allocations
+	  // (new char[] and new String) by returning the input String
+	  if (input == null || input.length() < 2) {
+	    return input;
+	  }
+
+	  char[] result = input.toCharArray();
+
+	  for (int i = 0; i < result.length; i++) {
+	    int swap_with = (int)(Math.random()*result.length);
+	    char inter = result[swap_with];
+	    result[swap_with] = result[i];
+	    result[i] = inter;
+	  }
+
+	  return new String(result);
 	}
 	/**
 	 * Return a string rep of this object
