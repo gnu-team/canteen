@@ -2,6 +2,8 @@ apply plugin: 'java'
 
 def classPath = 'lib/resources.jar'
 
+defaultTasks 'jar'
+
 dependencies {
     compile files(classPath)
 }
