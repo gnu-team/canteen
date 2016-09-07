@@ -1,17 +1,16 @@
 apply plugin: 'java'
 
-def classPath = 'lib/resources.jar'
 
 defaultTasks 'jar'
 
 dependencies {
-    compile files(classPath)
+    compile files('lib/resources.jar')
 }
 
 jar {
-    destinationDir = file('.')
+    
     manifest {
         attributes 'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain',
-                   'Class-Path': classPath
+                   'Class-Path': 'lib/resources.jar'
     }
 }
